@@ -1,6 +1,11 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
 
+const galleryContainerEl = document.querySelector('.gallery');
+const imagesMarkup = createGalleryItemsMarkup(galleryItems);
+
+galleryContainerEl.insertAdjacentHTML('beforeend', imagesMarkup);
+
 function createGalleryItemsMarkup(galleryItems) {
   return galleryItems
     .map(({ preview, original, description }) => {
