@@ -2,9 +2,11 @@ import { galleryItems } from './gallery-items.js';
 // Change code below this line
 
 const galleryContainerEl = document.querySelector('.gallery');
-const imagesMarkup = createGalleryItemsMarkup(galleryItems);
+const itemsMarkup = createGalleryItemsMarkup(galleryItems);
 
-galleryContainerEl.insertAdjacentHTML('beforeend', imagesMarkup);
+galleryContainerEl.insertAdjacentHTML('beforeend', itemsMarkup);
+
+galleryContainerEl.addEventListener('click', handleGalleryContainerElClick);
 
 function createGalleryItemsMarkup(galleryItems) {
   return galleryItems
@@ -23,6 +25,14 @@ function createGalleryItemsMarkup(galleryItems) {
         `;
     })
     .join('');
+}
+
+function handleGalleryContainerElClick(event) {
+    event.preventDefault();
+    if (!event.target.classList.contains('gallery__image')) {
+        return;
+    }
+    console.log(event.target);
 }
 
 console.log(galleryItems);
