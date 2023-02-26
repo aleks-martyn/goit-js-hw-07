@@ -36,3 +36,4 @@ function handleGalleryContainerElClick(event) {
 }
 
 console.log(galleryItems);
+
