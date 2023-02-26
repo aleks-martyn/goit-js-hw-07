@@ -36,3 +36,10 @@ function handleGalleryContainerElClick(event) {
 }
 
 console.log(galleryItems);
+
+
+const instance = basicLightbox.create(
+	galleryContainerEl
+)
+
+instance.show()
