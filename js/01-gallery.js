@@ -34,13 +34,11 @@ function handleGalleryContainerElClick(event) {
   }
   console.log(event.target.dataset.source);
 
-  const instance = basicLightbox.create(
-	event.target.dataset.source
-)
-
-instance.show()
+  basicLightbox.create(`
+  <img
+    src="${event.target.dataset.source}"        
+  />
+  `).show();
 }
 
 console.log(galleryItems);
-
-
