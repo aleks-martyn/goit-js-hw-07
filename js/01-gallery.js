@@ -28,12 +28,11 @@ function createGalleryItemsMarkup(galleryItems) {
 }
 
 function handleGalleryContainerElClick(event) {
-    event.preventDefault();
-    if (!event.target.classList.contains('gallery__image')) {
-        return;
-    }
-    console.log(event.target.dataset.source);
+  event.preventDefault();
+  if (!event.target.classList.contains('gallery__image')) {
+    return;
+  }
+  console.log(event.target.dataset.source);
 }
 
 console.log(galleryItems);
-
