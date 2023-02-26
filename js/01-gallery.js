@@ -33,7 +33,7 @@ function handleGalleryContainerElClick(event) {
     return;
   }
   console.log(event.target.dataset.source);
-  console.log(event.target.alt);
+  console.log(event.target);
 
   basicLightbox.create(`
   <img
@@ -41,6 +41,15 @@ function handleGalleryContainerElClick(event) {
     alt="${event.target.alt}"       
   />
   `).show();
+
+  window.addEventListener('keydown', handleEscKeyDown);
+}
+
+function handleEscKeyDown(event) {
+  console.log(event);
+  if (event.code === 'Escape') {
+    console.log(basicLightbox.visible());
+  }
 }
 
 console.log(galleryItems);
