@@ -33,10 +33,12 @@ function handleGalleryContainerElClick(event) {
     return;
   }
   console.log(event.target.dataset.source);
+  console.log(event.target.alt);
 
   basicLightbox.create(`
   <img
-    src="${event.target.dataset.source}"        
+    src="${event.target.dataset.source}" 
+    alt="${event.target.alt}"       
   />
   `).show();
 }
