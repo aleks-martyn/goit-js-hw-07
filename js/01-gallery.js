@@ -33,13 +33,14 @@ function handleGalleryContainerElClick(event) {
     return;
   }
   console.log(event.target.dataset.source);
+
+  const instance = basicLightbox.create(
+	event.target.dataset.source
+)
+
+instance.show()
 }
 
 console.log(galleryItems);
 
 
-const instance = basicLightbox.create(
-	galleryContainerEl
-)
-
-instance.show()
