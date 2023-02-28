@@ -32,23 +32,32 @@ function handleGalleryContainerElClick(event) {
   if (!event.target.classList.contains('gallery__image')) {
     return;
   }
-  console.log(event.target.dataset.source);
-  console.log(event.target);
 
-  basicLightbox.create(`
+  console.log(event.target.dataset.source);
+
+  const instance = basicLightbox.create(
+    `
   <img
     src="${event.target.dataset.source}" 
     alt="${event.target.alt}"       
   />
-  `).show();
+  `,
+    {
+      onShow: () => {
+        window.addEventListener('keydown', handleEscKeyDown);
+      },
+      onClose: () => {
+        window.removeEventListener('keydown', handleEscKeyDown);
+      },
+    },
+  );
 
-  window.addEventListener('keydown', handleEscKeyDown);
-}
+  instance.show();
 
-function handleEscKeyDown(event) {
-  console.log(event);
-  if (event.code === 'Escape') {
-    console.log(basicLightbox.visible());
+  function handleEscKeyDown(event) {
+    if (event.code === 'Escape') {
+      instance.close();
+    }
   }
 }
 
